@@ -11,3 +11,8 @@ cargo build
 cargo install --path .
 ```
 
+or 
+
+```bash
+cargo install pakx
+```
