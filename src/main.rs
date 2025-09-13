@@ -5,8 +5,20 @@ use pakx::cmd::{pack::run_pack, unpack::run_unpack, bswap::run_bswap, bytes::run
 use pakx::util::{Endian, OutFmt};
 
 #[derive(Parser)]
-#[command(name="pakx", version, about="Pack/Unpack/Endian/Bytes coreutil")]
-struct Cli {
+#[command(
+    name = "pakx",
+    version,
+    about = "Tiny, pipe-friendly CLI for packing / unpacking / endianness / byte handling.",
+    long_about = None,
+    arg_required_else_help = true,
+    before_help = r#"
+PPPP    A   K   K X   X 
+P   P  A A  K  K   X X  
+PPPP  AAAAA KKK     X   
+P     A   A K  K   X X  
+P     A   A K   K X   X 
+"#
+)]struct Cli {
     #[command(subcommand)]
     cmd: Cmd,
 }
